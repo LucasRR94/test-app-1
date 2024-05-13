@@ -1,9 +1,7 @@
 import Card from "./Card";
 import Paginator from "./Paginator";
 import { useState } from "react";
-import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
-
+/*
 export async function loader({ currentPage }) {
   // Simulate a delay to mimic server response time
   await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -39,11 +37,10 @@ export async function loader({ currentPage }) {
   return json({ cards, maxNumberCards: 25 });
 }
 
+*/
+
 export default function CardGallery() {
   const [page, setPage] = useState(1);
-  const currentPage = page || 1;
-  console.log(currentPage);
-  // const [cards, setCards] = useLoaderData({ currentPage });
   const cards = [
     {
       title: "Titulo do passo",
@@ -77,9 +74,9 @@ export default function CardGallery() {
   };
   return (
     <section className="flex flex-col gap-6 max-w self-center">
-      {cards.map((actualCard) => {
+      {cards.map((actualCard, index) => {
         const { title, content } = actualCard;
-        return <Card title={title} content={content}></Card>;
+        return <Card title={title} content={content} key={index}></Card>;
       })}
       <Paginator
         currentPageNumber={currentPageNumber}

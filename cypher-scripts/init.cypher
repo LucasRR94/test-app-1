@@ -27,3 +27,21 @@ CREATE (a:Academy {
 	id: 'academy-1',
 	title: 'A primeira academia'
 })
+
+
+//creating the relations in a db, is a way to describe the relation between nodes
+
+
+// a trail have steps
+
+//query for knowing if the relation already exist
+
+// creating a relation
+CREATED(ciencia_computacao:TRAIL{id:`{specificTrail}`}) - [:HAVE] -> (p1:STEP {id: `${specificStep}`}); 
+
+// a theme have tracks
+CREATED(computacao:THEME{id:`specificTheme`}) - [:HAVE] -> (ciencia_computacao:TRAIL{id: `${specificTrail}`});
+
+//an academy have themes
+CREATED(comp_academy:ACADEMY{id:`specificAcademy`}) - [:HAVE] -> (ciencia_computacao:THEME{id: `${specificTheme}`});
+

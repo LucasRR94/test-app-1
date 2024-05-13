@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 export default function Button({
   haveIcon,
@@ -17,10 +17,21 @@ export default function Button({
     >
       <div className="flex items-center">
         {haveIcon && (
-          <img src="/images/plus_symbol.svg" alt="plus simbol" class="mr-2" />
+          <img
+            src="/images/plus_symbol.svg"
+            alt="plus simbol"
+            className="mr-2"
+          />
         )}
         <span>{description}</span>
       </div>
     </button>
   );
 }
+
+Button.propTypes = {
+  haveIcon: PropTypes.bool,
+  invertedColorScheme: PropTypes.bool,
+  onClick: PropTypes.function,
+  description: PropTypes.string,
+};

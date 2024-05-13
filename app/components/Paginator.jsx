@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MAX_NUMBER_PAGES_CARDS } from "../utils/constants";
+import PropTypes from "prop-types";
 
 const getSlicePages = (currentPage, valueOffset, numberPages) => {
   const offSet = valueOffset || MAX_NUMBER_PAGES_CARDS;
@@ -18,8 +19,11 @@ const getSlicePages = (currentPage, valueOffset, numberPages) => {
   });
 };
 
-export default function ({ currentPageNumber, numberPages, handleClick }) {
-  console.log(handleClick);
+export default function Paginator({
+  currentPageNumber,
+  numberPages,
+  handleClick,
+}) {
   const [currentWindow, setCurrentWindow] = useState(
     getSlicePages(currentPageNumber, null, numberPages)
   );
@@ -30,9 +34,7 @@ export default function ({ currentPageNumber, numberPages, handleClick }) {
           <button
             key={index}
             className="rounded-lg w-8 p-1.5 bg-[#7357FF] text-white"
-            onClick={() => {
-              console.log("this is a test");
-            }}
+            onClick={handleClick}
           >
             {pageIndex}
           </button>
@@ -41,3 +43,9 @@ export default function ({ currentPageNumber, numberPages, handleClick }) {
     </ul>
   );
 }
+
+Paginator.propTypes = {
+  currentPageNumber: PropTypes.number,
+  numberPages: PropTypes.number,
+  handleClick: PropTypes.func,
+};

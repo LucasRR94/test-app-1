@@ -6,8 +6,10 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "./styles/app.css";
+import stylesheet from "./tailwind.css?url";
+import PropTypes from "prop-types";
 
-//export const links = () => [{ rel: "stylesheet", href: styles }];
+export const links = () => [{ rel: "stylesheet", href: stylesheet }];
 
 export function Layout({ children }) {
   return (
@@ -18,7 +20,7 @@ export function Layout({ children }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="m-0 p-0 w-full h-full">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -30,3 +32,7 @@ export function Layout({ children }) {
 export default function App() {
   return <Outlet />;
 }
+
+Layout.propTypes = {
+  children: PropTypes.node,
+};

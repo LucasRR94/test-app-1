@@ -1,4 +1,5 @@
 import Button from "./Button";
+import PropTypes from "prop-types";
 
 export default function Modal({ title }) {
   return (
@@ -10,12 +11,12 @@ export default function Modal({ title }) {
         <div className="flex flex-col gap-1">
           <label
             className="font-semibold text-[14px] leading-6 text-[#4F4B5C]"
-            for="idPost"
+            htmlFor="idPost"
           >
             id
           </label>
           <input
-            className="w-full h-12 bg-[#F8F8F8] border-[#ECECED] border-[1px] rounded-xl py-3 px-3.5"
+            className="w-full h-12 bg-[#F8F8F8] border-[#ECECED] border-[1px] rounded-xl py-3 px-3.5 text-base font-semibold leading-6"
             type="text"
             value=""
             id="idPost"
@@ -24,12 +25,12 @@ export default function Modal({ title }) {
         <div className="flex flex-col gap-1">
           <label
             className="font-semibold text-[14px] leading-6 text-[#4F4B5C]"
-            for="idTitle"
+            htmlFor="idTitle"
           >
             Título
           </label>
           <input
-            className="w-full h-12 bg-[#F8F8F8] border-[#ECECED] border-[1px] rounded-xl py-3 px-3.5"
+            className="w-full h-12 bg-[#F8F8F8] border-[#ECECED] border-[1px] rounded-xl py-3 px-3.5 text-base font-semibold leading-6"
             type="text"
             value=""
             id="idTitle"
@@ -38,12 +39,12 @@ export default function Modal({ title }) {
         <div className="flex flex-col gap-1">
           <label
             className="font-semibold text-[14px] leading-6 text-[#4F4B5C]"
-            for="idContent"
+            htmlFor="idContent"
           >
             Conteúdo
           </label>
           <textarea
-            className="w-full h-[100px] bg-[#F8F8F8] border-[#ECECED] border-[1px] rounded-xl py-3 px-3.5 resize-none"
+            className="w-full h-[100px] bg-[#F8F8F8] border-[#ECECED] border-[1px] rounded-xl py-3 px-3.5 resize-none text-base font-semibold leading-6"
             type="text"
             value=""
             id="idContent"
@@ -57,3 +58,7 @@ export default function Modal({ title }) {
     </form>
   );
 }
+
+Modal.propTypes = {
+  title: PropTypes.string.isRequired,
+};

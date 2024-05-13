@@ -4,7 +4,7 @@ const driver = (apiKey) => {
   try {
     const URI = "neo4j://localhost:7687";
     const user = "dummy";
-    const pass = "#1DcGaKkac#5sdc@30121";
+    const pass = "12345";
     console.log(URI, user, pass);
     const connection = neo4j.driver(URI, neo4j.auth.basic(user, pass));
     return connection;
